@@ -21,6 +21,15 @@ number = "73167176531330624919225119674426574742355349194934\
 05886116467109405077541002256983155200055935729725\
 71636269561882670428252483600823257530420752963450"
 
-for c in number:
-    print c,
+
+max_product = 0
+for i, v in enumerate(number):
+    product = 1
+    for j in range(i, min(i+4, 999)+1):
+        product *= int(number[j])
+
+    if (product > max_product):
+        max_product = product
+
+print max_product
 
