@@ -15,3 +15,11 @@ def ispalindrome(n):
 
     return True
 
+
+def fib(n):
+    fn = f1 = f2 = 1
+    for x in xrange(2, n):
+        fn = f1 + f2
+        f2, f1 = f1, fn
+    return fn
+
