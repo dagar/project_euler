@@ -31,28 +31,30 @@ for i in range(20):
     for j in range(20):
         grid[i].append(int(nums[20*i+j]))
 
+
 def max_horz(grd):
     # horizontal sum
     max_horizontal = 0
     for i in range(20):
         line = grd[i]
-        print [reduce(mul, line[x:x+4]) for x in range(0, 16+1)]
+        #print [reduce(mul, line[x:x+4]) for x in range(0, 16+1)]
         max_row = max([reduce(mul, line[x:x+4]) for x in range(0, 16+1)])
         if max_row > max_horizontal:
             max_horizontal = max_row
 
-    print "Max Horizontal = ", max_horizontal
+    return max_horizontal
 
 def max_diag(matrix):
     max_product = 0
     product = 0
     for i in range(17):
         for j in range(17):
+            #print matrix[i][j] , matrix[i+1][j+1] , matrix[i+2][j+2] , matrix[i+3][j+3]
             product = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3]
             if product > max_product:
                 max_product = product
 
-    print "max diagonal = ", max_product
+    return max_product
 
 def transpose(matrix):
     new_matrix = []
@@ -63,6 +65,13 @@ def transpose(matrix):
 
     return new_matrix
 
-max_horz(grid)
-max_horz(transpose(grid))
-max_diag(grid)
+def mirror(matrix):
+    new_matrix = []
+    for line in matrix:
+        new_matrix.append(line[::-1])
+    return new_matrix
+
+print "Max horizontal", max_horz(grid)
+print "Max vertical", max_horz(transpose(grid))
+print "Max diagonal \\", max_diag(grid)
+print "Max diagonal /", max_diag(mirror(grid))
