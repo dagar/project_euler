@@ -23,3 +23,6 @@ def fib(n):
         f2, f1 = f1, fn
     return fn
 
+
+def factor(n):
+    return [i for i in xrange(1, n+1) if (n % i == 0)]
