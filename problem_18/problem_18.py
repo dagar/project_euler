@@ -5,11 +5,15 @@ class Tree(object):
         self.left = None
         self.right = None
         self.value = value
+        self.total_sum = 0
     def sum(self):
-        if (self.left is not None and self.right is not None):
-            return self.value + max(self.left.sum(), self.right.sum())
-        else:
-            return self.value
+        if (self.total_sum == 0):
+            if (self.left is not None and self.right is not None):
+                self.total_sum = self.value + max(self.left.sum(), self.right.sum())
+            else:
+                self.total_sum = self.value
+
+        return self.total_sum
 
     def __str__(self):
         return str(self.value)
@@ -46,7 +50,7 @@ def print_tree(tree):
 
 def read_tree_file():
 
-    f = open("tree_data")
+    f = open("triangle.txt")
     root = Tree(int(f.readline()))
     prev_line = [root]
     for line in f.readlines():
