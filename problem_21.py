@@ -1,11 +1,6 @@
 #! /usr/bin/env python
 
-import common
-
-def proper_divisor_sum(n):
-    d = common.factors(n)
-    d.remove(n)
-    return sum(d)
+from common import proper_divisor_sum
 
 proper_divisors = {}
 amicable_numbers = set()
