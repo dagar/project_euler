@@ -6,5 +6,5 @@ from decimal import Decimal
 
 for d in range(2, 20):
   n = Decimal(1.0/d)
-  print str(n)[2:]
+  print "1 /", d, str(n)[2:]
 
