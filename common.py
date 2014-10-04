@@ -1,7 +1,7 @@
 def isprime(n):
   '''check if integer n is a prime'''
   # range starts with 2 and only needs to go up the squareroot of n
-  if n == 1:
+  if n <= 1:
       return False
 
   for x in xrange(2, int(n**0.5) + 1):
