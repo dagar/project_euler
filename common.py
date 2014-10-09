@@ -41,13 +41,13 @@ def proper_divisor_sum(n):
 
 def permutations(word):
     if len(word) == 1:
-        return [word]
+        return set([word])
     
     perms = permutations(word[1:])
     char = word[0]
-    result = []
+    result = set([])
     for perm in perms:
         for i in range(len(perm) + 1):
-            result.append(perm[:i] + char + perm[i:])
+            result.add(perm[:i] + char + perm[i:])
             
     return result
