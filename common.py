@@ -1,10 +1,11 @@
+from functools import reduce
 def isprime(n):
   '''check if integer n is a prime'''
   # range starts with 2 and only needs to go up the squareroot of n
   if n <= 1:
       return False
 
-  for x in xrange(2, int(n**0.5) + 1):
+  for x in range(2, int(n**0.5) + 1):
     if (n % x == 0):
       return False
 
@@ -22,7 +23,7 @@ def ispalindrome(n):
 
 def fib(n):
     fn = f1 = f2 = 1
-    for x in xrange(2, n):
+    for x in range(2, n):
         fn = f1 + f2
         f2, f1 = f1, fn
     return fn
